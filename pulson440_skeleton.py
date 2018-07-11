@@ -14,7 +14,7 @@ from constants import SPEED_OF_LIGHT, MAX_PACKET_SIZE, CONTINUOUS_SCAN, \
 MESSAGE_ID = "\x00\x01"
 
 # Radar messages types; refer to API for details
-# !!!
+
 
 # Specific recommended radar configurations
 REC_SCAN_RES = 32 # Scan resolution (bins)
@@ -22,8 +22,12 @@ REC_ANTENNA_MODE = 2 # Transmit/receive configuration of antennas
 REC_PERSIST_FLAG = 1 # Configuration persistence flag
 
 # Default user settings
-# !!!
+NODE_ID = 10  # Specifies the node ID
+BASE_INTEGRATION = 11  # Log2 of the number of integrated samples per scan point
 DT_0 = 10 # Path delay through antennas (ns)
+CHANNEL_CODE = 4  # index of the active UWB coded channel
+TRANSMIT_GAIN = 63  # Specifies the pulser transmit gain from 0 (lowest) to 63 (highest)
+
 
 # Status and control
 # TIP A control and status files are recommended to provide traceability
