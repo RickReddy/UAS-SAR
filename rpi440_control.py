@@ -13,7 +13,7 @@ def parse_args(args):
     Input argument parser.
     TIP Recommend use of argparse module
     """
-    # !!!
+    #!!!
 
 def main(args):
     """
