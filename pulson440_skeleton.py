@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
 """
 PulsON 440 radar command and control class.
 """
 
-# Import the required modules
-# TIP Numpy will be very useful in converting received data into desired types.
+# Importing the required modules
 import math
 import numpy as np
 import socket
@@ -12,10 +10,11 @@ from constants import SPEED_OF_LIGHT, MAX_PACKET_SIZE, CONTINUOUS_SCAN, \
     STOP_SCAN, DT_MIN, T_BIN, DN_BIN, SEG_NUM_BINS
 
 # Communication protocol constants
-MESSAGE_ID = "\x00\x01" # Message ID; static since only 1 radar is presumed
+# Message ID; static since only 1 radar is presumed
+MESSAGE_ID = "\x00\x01"
 
 # Radar messages types; refer to API for details
-# !!!
+
 
 # Specific recommended radar configurations
 REC_SCAN_RES = 32 # Scan resolution (bins)
@@ -23,8 +22,12 @@ REC_ANTENNA_MODE = 2 # Transmit/receive configuration of antennas
 REC_PERSIST_FLAG = 1 # Configuration persistence flag
 
 # Default user settings
-# !!!
+NODE_ID = 10  # Specifies the node ID
+BASE_INTEGRATION = 11  # Log2 of the number of integrated samples per scan point
 DT_0 = 10 # Path delay through antennas (ns)
+CHANNEL_CODE = 4  # index of the active UWB coded channel
+TRANSMIT_GAIN = 63  # Specifies the pulser transmit gain from 0 (lowest) to 63 (highest)
+
 
 # Status and control
 # TIP A control and status files are recommended to provide traceability
