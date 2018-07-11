@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
 """
 PulsON 440 radar command and control class.
 """
 
-# Import the required modules
-# TIP Numpy will be very useful in converting received data into desired types.
+# Importing the required modules
 import math
 import numpy as np
 import socket
@@ -12,7 +10,8 @@ from constants import SPEED_OF_LIGHT, MAX_PACKET_SIZE, CONTINUOUS_SCAN, \
     STOP_SCAN, DT_MIN, T_BIN, DN_BIN, SEG_NUM_BINS
 
 # Communication protocol constants
-MESSAGE_ID = "\x00\x01" # Message ID; static since only 1 radar is presumed
+# Message ID; static since only 1 radar is presumed
+MESSAGE_ID = "\x00\x01"
 
 # Radar messages types; refer to API for details
 # !!!
