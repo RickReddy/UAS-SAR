@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Constants module. Hi my name is Zaid
+Constants module.
 """
 
 # Universal constants
