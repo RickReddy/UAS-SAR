@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Constants module
+Constants module.
 """
 
 # Universal constants
