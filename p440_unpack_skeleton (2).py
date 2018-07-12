@@ -17,7 +17,7 @@ def unpack(file):
     Unpacks PulsOn 440 radar data from input file.
     TIP Follow the format you defined when saving the data.
     TIP You will need to unpack or provide the radar configuration that was 
-    used to collect htis data.
+    used to collect this data.
     """
     # !!!
         

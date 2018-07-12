@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 """
+<<<<<<< HEAD
+Constants module. 
+=======
 Constants module.
+>>>>>>> 0c8828c0d3b1726adcdfa12d3254ceea2f1bf19a
 """
 
 # Universal constants

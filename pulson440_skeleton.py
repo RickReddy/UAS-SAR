@@ -1,43 +1,21 @@
+# -*- coding: utf-8 -*-
 """
 PulsON 440 radar command and control class.
 """
 
-# Importing the required modules
+# Import the required modules
+# TIP Numpy will be very useful in converting received data into desired types.
 import math
 import numpy as np
 import socket
-from constants import SPEED_OF_LIGHT, MAX_PACKET_SIZE, CONTINUOUS_SCAN, \
+from constants import SPEED_OF_LIGHT, MAX_PACKET_SIZE, CONTINUOUS_SCAN, 
     STOP_SCAN, DT_MIN, T_BIN, DN_BIN, SEG_NUM_BINS
 
 # Communication protocol constants
-# Message ID; static since only 1 radar is presumed
-MESSAGE_ID = "\x00\x01"
+MESSAGE_ID = "\x00\x01" # Message ID; static since only 1 radar is presumed
 
 # Radar messages types; refer to API for details
-MRM_SET_CONFIG_REQUEST = "\x10\x01"
-MRM_SET_CONFIG_CONFIRM = "\x11\x01)"
-MRM_GET_CONFIG_REQUEST = "\x10\x02"
-MRM_GET_CONFIG_CONFIRM = "\x11\x02"
-MRM_CONTROL_REQUEST = "\x10\x03"
-MRM_CONTROL_CONFIRM = "\x11\x03"
-MRM_SERVER_CONNECT_REQUEST = "\x10\x01"
-MRM_SERVER_CONNECT_CONFIRM = "\x11\x04"
-MRM_SERVER_DISCONNECT_REQUEST = "\x10\x05"
-RM_SERVER_DISCONNECT_CONFIRM = "\x11\x05"
-MRM_SET_FILTER_CONFIG_REQUEST = "\x10\x06"
-MRM_SET_FILTER_CONFIG_CONFIRM = "\x11\x06"
-MRM_GET_STATUSINFO_REQUEST = "\xF0\x01"
-MRM_GET_STATUSINFO_CONFIRM = "\xF1\x01"
-MRM_REBOOT_REQUEST = "\xF0\x02"
-MRM_REBOOT_CONFIRM = "\xF1\x02"
-MRM_SETOPMODE_REQUEST = "\xF0\x03"
-MRM_SETOPMODE_CONFIRM = "\xF1\x03"
-MRM_SCAN_INFO = "\xF2\x01"
-MRM_DETECTION_LIST_INFO = "\x12\x01"
-MRM_SET_SLEEPMODE_REQUEST = "\xF0\x05"
-MRM_SET_SLEEPMODE_CONFIRM = "\xF1\x05"
-MRM_READY_INFO = "\xF2\x02"
-
+# !!!
 
 # Specific recommended radar configurations
 REC_SCAN_RES = 32 # Scan resolution (bins)
@@ -45,26 +23,22 @@ REC_ANTENNA_MODE = 2 # Transmit/receive configuration of antennas
 REC_PERSIST_FLAG = 1 # Configuration persistence flag
 
 # Default user settings
-NODE_ID = 10  # Specifies the node ID
-BASE_INTEGRATION = 11  # Log2 of the number of integrated samples per scan point
+# !!!
 DT_0 = 10 # Path delay through antennas (ns)
-CHANNEL_CODE = 4  # index of the active UWB coded channel
-TRANSMIT_GAIN = 63  # Specifies the pulser transmit gain from 0 (lowest) to 63 (highest)
-
 
 # Status and control
 # TIP A control and status files are recommended to provide traceability
 CONTROL_FILE_NAME = "control"
 STATUS_FILE_NAME = "status"
-
 class PulsON440:
+    
     """
     Class for command and control of PulsON 440 radar.
     TIP Use of a class is not required; this can all be done in script.
     TIP The host is the Raspberry Pi and the radar is the radar.
     """
     
-    def __init__(self, udp_ip_host="192.168.1.1", udp_ip_radar="192.168.1.100", 
+    def __init__(self, udp_ip_host="192.168.2.1", udp_ip_radar="192.168.1.100", 
                  udp_port=21210):
         """
         Instance initialization.
@@ -103,8 +77,6 @@ class PulsON440:
         from a terminal.
         """
         # !!!
-      
-        
     def settings_to_config(self):
         """
         Translate user settings into radar configuration.

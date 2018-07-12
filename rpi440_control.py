@@ -13,7 +13,12 @@ def parse_args(args):
     Input argument parser.
     TIP Recommend use of argparse module
     """
-    #!!!
+    # !!!
+   
+    parser= argparse.ArgumentParser()
+    parser.add_argument("mode", help="radar configuration")
+    return parser.parse_args()
+    
 
 def main(args):
     """
